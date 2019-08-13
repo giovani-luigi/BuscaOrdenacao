@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include "List.h"
+
 #include "Dataset.h"
 #include "Sorter.h"
 #include "BubbleSorter.h"
@@ -42,7 +44,6 @@ void ordenaDados(){
 	Dataset dados;	
 	dados.abreArquivoBinario();
 	
-	
 	// cria um objeto capaz de ordenar os dados
 	Sorter sorter; // instancia no stack um objeto do tipo Sorter (é a clase base, que implementa um Selection sort)
 	// - outros metodos de ordenação deverão herdar da classe base Sorter. (ver BubbleSorter por exemplo)
@@ -66,10 +67,29 @@ void ordenaDados(){
 	
 }
 
+void testaLista(){
+	
+	List* l = new List();
+	
+	srand(clock());
+	
+	for (int i=1; i<=500;i++)
+		l->insere(static_cast<int64>( rand() % 100 ), ModoInsereLista::Ordenado);
+	
+	l->mostra();
+	
+	delete l;
+	
+}
+
 int main(int argc, char** argv) {
+	
+//	testaLista();
 	
 	carregaDados();
 	
+	system("pause");
+		
 	ordenaDados();
 	
 	return 0;

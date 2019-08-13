@@ -6,7 +6,7 @@ const char* BubbleSorter::getNome(){
 	
 void BubbleSorter::ordenaDados(vector<TDado>& vetor){
 	TDado* menor;
-	int64 i, j;			
+	int64 i, j;
 
 	for (i=0; i<vetor.size();i++){
 
