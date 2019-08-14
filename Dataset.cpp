@@ -53,6 +53,9 @@ bool Dataset::estaOrdenado(){
 
 void Dataset::abreArquivoBinario(const char* arquivo){
 
+	// antes de abrir, vamos limpar o vetor
+	vetor.clear();
+
 	// abre arquivo para leitura, no modo binário
 	ifstream ifs(arquivo, ios::binary);
 	

@@ -4,14 +4,14 @@
 
 #include "Dataset.h"
 #include "Sorter.h"
-#include "BubbleSorter.h"
+#include "InsertionSorter.h"
 
 const int VALOR_MAXIMO = 999;	
 
 // Pede ao usuário para entrar com um número
 int64 pedeNumero(const char* message){
 	int64 result = 0;
-	cout << message;
+	cout << message; 
 	cin >> result;
 	return result;
 }
@@ -29,7 +29,7 @@ void criaNovoArquivo(){
 // gera arquivo se não existir
 void carregaDados(){
 	
-	cout << "Carregando dados..." << endl;
+	cout << "Validando arquivo de dados..." << endl;
 
 	// quando não existe, cria arquivo
 	ifstream ifs(Dataset::NOME_ARQUIVO_PADRAO);
@@ -40,25 +40,27 @@ void carregaDados(){
 // realiza a ordenação dos dados
 void ordenaDados(){
 	
-	// coloca todos os dados do arquivo na RAM	
 	Dataset dados;	
-	dados.abreArquivoBinario();
 	
-	// cria um objeto capaz de ordenar os dados
-	Sorter sorter; // instancia no stack um objeto do tipo Sorter (é a clase base, que implementa um Selection sort)
-	// - outros metodos de ordenação deverão herdar da classe base Sorter. (ver BubbleSorter por exemplo)
-	
-	// substitua o objeto acima pela linah abaixo, para usar BubbleSort ao inves de SelectionSort
-	// BubbleSorter sorter;
+	// cria objetos de ordenação para testar
+	Sorter selectionSorter; // sorter padrão (classe base), implementa um Selection Sort
+	InsertionSorter insertionSorter;
 
-	dados.ordena(sorter);
-
-	sorter.exibeEstatisticas();
-	
-	// verifica se ficou ordenado:
+	// metodo 1
+	dados.abreArquivoBinario(); // obtem conjunto de dados do arquivo
+	dados.ordena(selectionSorter);
+	selectionSorter.exibeEstatisticas(); // obtem estatísticas referentes ao objeto sorter
+	// verifica se ordenação ocorreu corretamente
 	cout << "Esta ordenado= " << dados.estaOrdenado()<< endl << endl;
 	
-	cout << "Pressione ENTER para mostrar o resultado. CTRL+C para sair." << endl;
+	// metodo 2
+	dados.abreArquivoBinario(); // recarrega conjunto de dados do arquivo
+	dados.ordena(insertionSorter);
+	insertionSorter.exibeEstatisticas();	// obtem estatísticas referentes ao objeto sorter
+	// verifica se ordenação ocorreu corretamente
+	cout << "Esta ordenado= " << dados.estaOrdenado()<< endl << endl;
+	
+	cout << "Pressione ENTER para mostrar o resultado da última ordenação. CTRL+C para sair." << endl;
 	cin.ignore();
 	cin.get();
 	
@@ -84,11 +86,15 @@ void testaLista(){
 
 int main(int argc, char** argv) {
 	
+	setlocale(LC_ALL, "portuguese");
+	
 //	testaLista();
 	
 	carregaDados();
 	
+	cout << "Dados válidos. Pronto para iniciar." << endl;
 	system("pause");
+	cout << endl << endl;
 		
 	ordenaDados();
 	

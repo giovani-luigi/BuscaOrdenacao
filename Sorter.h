@@ -9,6 +9,9 @@
 
 using namespace std;
 
+
+// Classe base para objetos de ordenação de um vetor. 
+// Novas classes de ordenação devem herdar esta classe (ver InsertionSorter por exemplo)
 class Sorter{
 
 	protected:
@@ -17,7 +20,9 @@ class Sorter{
 		// objetos membros da classe
 		// ***************************************************************************************
 		
-		int trocas, comparacoes, progresso;
+		int trocas; 	 // toda vez que houver a troca de posição de um elemento, incrementar
+		int comparacoes; // toda vez que houver comparação entre elementos, incrementar
+		int progresso;
 		float duracao;
 
 		// ***************************************************************************************
