@@ -32,6 +32,7 @@ void Sorter::ordena(vector<TDado>& vetor){
 			
 	clock_t startTime = clock();
 	cout << "Ordenando com: " << this->getNome() << endl;
+	cout << "Progresso %"; // placeholder
 	
 	ordenaDados(vetor);
 	
