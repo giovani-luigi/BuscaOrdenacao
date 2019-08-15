@@ -4,8 +4,8 @@
 CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = main.o Dataset.o Sorter.o BubbleSorter.o ListItem.o List.o InsertionSorter.o RadixSorter.o QuickSorter.o
-LINKOBJ  = main.o Dataset.o Sorter.o BubbleSorter.o ListItem.o List.o InsertionSorter.o RadixSorter.o QuickSorter.o
+OBJ      = SRC/BubbleSorter.o SRC/Dataset.o SRC/InsertionSorter.o SRC/List.o SRC/ListItem.o SRC/main.o SRC/QuickSorter.o SRC/RadixSorter.o SRC/Sorter.o
+LINKOBJ  = SRC/BubbleSorter.o SRC/Dataset.o SRC/InsertionSorter.o SRC/List.o SRC/ListItem.o SRC/main.o SRC/QuickSorter.o SRC/RadixSorter.o SRC/Sorter.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -24,29 +24,29 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-main.o: main.cpp
-	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+SRC/BubbleSorter.o: SRC/BubbleSorter.cpp
+	$(CPP) -c SRC/BubbleSorter.cpp -o SRC/BubbleSorter.o $(CXXFLAGS)
 
-Dataset.o: Dataset.cpp
-	$(CPP) -c Dataset.cpp -o Dataset.o $(CXXFLAGS)
+SRC/Dataset.o: SRC/Dataset.cpp
+	$(CPP) -c SRC/Dataset.cpp -o SRC/Dataset.o $(CXXFLAGS)
 
-Sorter.o: Sorter.cpp
-	$(CPP) -c Sorter.cpp -o Sorter.o $(CXXFLAGS)
+SRC/InsertionSorter.o: SRC/InsertionSorter.cpp
+	$(CPP) -c SRC/InsertionSorter.cpp -o SRC/InsertionSorter.o $(CXXFLAGS)
 
-BubbleSorter.o: BubbleSorter.cpp
-	$(CPP) -c BubbleSorter.cpp -o BubbleSorter.o $(CXXFLAGS)
+SRC/List.o: SRC/List.cpp
+	$(CPP) -c SRC/List.cpp -o SRC/List.o $(CXXFLAGS)
 
-ListItem.o: ListItem.cpp
-	$(CPP) -c ListItem.cpp -o ListItem.o $(CXXFLAGS)
+SRC/ListItem.o: SRC/ListItem.cpp
+	$(CPP) -c SRC/ListItem.cpp -o SRC/ListItem.o $(CXXFLAGS)
 
-List.o: List.cpp
-	$(CPP) -c List.cpp -o List.o $(CXXFLAGS)
+SRC/main.o: SRC/main.cpp
+	$(CPP) -c SRC/main.cpp -o SRC/main.o $(CXXFLAGS)
 
-InsertionSorter.o: InsertionSorter.cpp
-	$(CPP) -c InsertionSorter.cpp -o InsertionSorter.o $(CXXFLAGS)
+SRC/QuickSorter.o: SRC/QuickSorter.cpp
+	$(CPP) -c SRC/QuickSorter.cpp -o SRC/QuickSorter.o $(CXXFLAGS)
 
-RadixSorter.o: RadixSorter.cpp
-	$(CPP) -c RadixSorter.cpp -o RadixSorter.o $(CXXFLAGS)
+SRC/RadixSorter.o: SRC/RadixSorter.cpp
+	$(CPP) -c SRC/RadixSorter.cpp -o SRC/RadixSorter.o $(CXXFLAGS)
 
-QuickSorter.o: QuickSorter.cpp
-	$(CPP) -c QuickSorter.cpp -o QuickSorter.o $(CXXFLAGS)
+SRC/Sorter.o: SRC/Sorter.cpp
+	$(CPP) -c SRC/Sorter.cpp -o SRC/Sorter.o $(CXXFLAGS)
