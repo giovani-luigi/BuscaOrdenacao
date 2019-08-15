@@ -51,7 +51,7 @@ AutoIncBuildNr=0
 SyncProduct=1
 
 [Unit1]
-FileName=main.cpp
+FileName=SRC\BubbleSorter.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -61,7 +61,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit2]
-FileName=Dataset.cpp
+FileName=SRC\BubbleSorter.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -71,7 +71,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit3]
-FileName=Dataset.h
+FileName=SRC\Dataset.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -81,7 +81,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit4]
-FileName=Sorter.h
+FileName=SRC\Dataset.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -91,7 +91,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit5]
-FileName=BubbleSorter.h
+FileName=SRC\ExtraTypes.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -101,7 +101,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit6]
-FileName=ExtraTypes.h
+FileName=SRC\InsertionSorter.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -111,7 +111,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit7]
-FileName=Sorter.cpp
+FileName=SRC\InsertionSorter.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -121,7 +121,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit8]
-FileName=BubbleSorter.cpp
+FileName=SRC\List.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -131,7 +131,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit9]
-FileName=List.h
+FileName=SRC\List.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -141,7 +141,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit10]
-FileName=ListItem.h
+FileName=SRC\ListItem.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -151,7 +151,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit11]
-FileName=ListItem.cpp
+FileName=SRC\ListItem.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -161,7 +161,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit12]
-FileName=List.cpp
+FileName=SRC\main.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -171,7 +171,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit13]
-FileName=InsertionSorter.cpp
+FileName=SRC\QuickSorter.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -181,7 +181,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit14]
-FileName=InsertionSorter.h
+FileName=SRC\QuickSorter.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -191,7 +191,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit15]
-FileName=RadixSorter.cpp
+FileName=SRC\RadixSorter.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -201,7 +201,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit16]
-FileName=RadixSorter.h
+FileName=SRC\RadixSorter.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -211,7 +211,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit17]
-FileName=QuickSorter.cpp
+FileName=SRC\Sorter.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -221,7 +221,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit18]
-FileName=QuickSorter.h
+FileName=SRC\Sorter.h
 CompileCpp=1
 Folder=
 Compile=1
