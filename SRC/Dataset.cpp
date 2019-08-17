@@ -22,7 +22,17 @@ void Dataset::gera(int64 quantia, TDado valorMaximo){
 
 // apaga todo o conteudo da memoria RAM
 void Dataset::limpa(){
-	vetor.clear();
+
+	// --------------------------------------------------------
+	// destroys data container and de-allocate it:
+	// --------------------------------------------------------
+	vetor.clear(); // destroy all objects but underlying array 
+	// remains allocated (sizeof(T)*vector.size()  bytes at least)
+
+	// shrink_to_fit() is not guaranteed to free memory, instead we use the swap() trick:
+	vector<int>().swap(vetor); // swap the vector with an empty vector.
+	// This will de-allocate the memory taken by the vector (guaranteed)
+	// --------------------------------------------------------
 }
 
 // mostra na tela o conjunto de dados
@@ -54,8 +64,8 @@ bool Dataset::estaOrdenado(){
 void Dataset::abreArquivoBinario(const char* arquivo){
 
 	// antes de abrir, vamos limpar o vetor
-	vetor.clear();
-
+	limpa();
+	
 	// abre arquivo para leitura, no modo binário
 	ifstream ifs(arquivo, ios::binary);
 	
