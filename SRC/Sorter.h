@@ -1,11 +1,12 @@
+#ifndef SORTER_H
+#define SORTER_H
+
 #include <iostream>
 #include <vector>
 #include <ctime>
+#include <cmath>
 
 #include "ExtraTypes.h"
-
-#ifndef SORTER_H
-#define SORTER_H
 
 using namespace std;
 
@@ -20,9 +21,10 @@ class Sorter{
 		// objetos membros da classe
 		// ***************************************************************************************
 		
-		int trocas; 	 // toda vez que houver a troca de posição de um elemento, incrementar
-		int comparacoes; // toda vez que houver comparação entre elementos, incrementar
-		int progresso;
+		int64 trocas; 	 // toda vez que houver a troca de posição de um elemento, incrementar
+		int64 comparacoes; // toda vez que houver comparação entre elementos, incrementar
+		int64 progresso;
+		int64 limiar;    // otimização para evitar atualização de tela muito frequente
 		float duracao;
 
 		// ***************************************************************************************
@@ -31,13 +33,12 @@ class Sorter{
 		
 		// exibe o progresso na tela
 		// - pct: o progress em porcentagem (0.0-1.0)
-		inline void exibeProgresso(float pct){
-			int integral = static_cast<int>(pct*100);
+		inline void exibeProgresso(){
 			// otimização:
-			if (progresso != integral){
-				cout << "\rProgresso: " << integral << "%";
-				progresso = integral;
-			}		
+			if ((progresso + limiar) < comparacoes){
+				cout << "\rComparações: " << comparacoes;
+				progresso = comparacoes;
+			}
 		}
 
 		// reinicia os contadores
@@ -55,7 +56,7 @@ class Sorter{
 		void ordena(vector<TDado>& vetor);
 
 		virtual const char* getNome();
-
+		
 };
 
 #endif

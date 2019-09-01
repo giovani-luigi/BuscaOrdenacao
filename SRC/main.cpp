@@ -4,6 +4,9 @@
 
 #include "Dataset.h"
 #include "Sorter.h"
+#include "BubbleSorter.h"
+#include "CombSorter.h"
+#include "ShakeSorter.h"
 #include "InsertionSorter.h"
 #include "RadixSorter.h"
 #include "QuickSorter.h"
@@ -46,44 +49,66 @@ void ordenaDados(){
 	
 	// SELECTION SORT
 	{
-		Sorter selectionSorter; // sorter padrão (classe base), implementa um Selection Sort
-		dados.abreArquivoBinario(); // obtem conjunto de dados do arquivo
+		Sorter sorter;
+		dados.abreArquivoBinario(); // recarrega conjunto de dados do arquivo
 		cout << "Esta ordenado (antes)= " << dados.estaOrdenado()<< endl;
-		dados.ordena(selectionSorter);
-		selectionSorter.exibeEstatisticas(); // obtem estatísticas referentes ao objeto sorter
+		dados.ordena(sorter);
+		sorter.exibeEstatisticas();	// obtem estatísticas referentes ao objeto sorter
+		// verifica se ordenação ocorreu corretamente
+		cout << "Esta ordenado (depois)= " << dados.estaOrdenado()<< endl << endl;
+	}
+	
+	// BUBBLE SORT
+	{
+		BubbleSorter sorter;
+		dados.abreArquivoBinario(); // recarrega conjunto de dados do arquivo
+		cout << "Esta ordenado (antes)= " << dados.estaOrdenado()<< endl;
+		dados.ordena(sorter);
+		sorter.exibeEstatisticas();	// obtem estatísticas referentes ao objeto sorter
+		// verifica se ordenação ocorreu corretamente
+		cout << "Esta ordenado (depois)= " << dados.estaOrdenado()<< endl << endl;
+	}
+	
+	// SHAKE SORT
+	{
+		ShakeSorter sorter;
+		dados.abreArquivoBinario(); // recarrega conjunto de dados do arquivo
+		cout << "Esta ordenado (antes)= " << dados.estaOrdenado()<< endl;
+		dados.ordena(sorter);
+		sorter.exibeEstatisticas();	// obtem estatísticas referentes ao objeto sorter
 		// verifica se ordenação ocorreu corretamente
 		cout << "Esta ordenado (depois)= " << dados.estaOrdenado()<< endl << endl;
 	}
 	
 	// INSERTION SORT
 	{
-		InsertionSorter insertionSorter;
+		InsertionSorter sorter;
 		dados.abreArquivoBinario(); // recarrega conjunto de dados do arquivo
 		cout << "Esta ordenado (antes)= " << dados.estaOrdenado()<< endl;
-		dados.ordena(insertionSorter);
-		insertionSorter.exibeEstatisticas();	// obtem estatísticas referentes ao objeto sorter
+		dados.ordena(sorter);
+		sorter.exibeEstatisticas();	// obtem estatísticas referentes ao objeto sorter
 		// verifica se ordenação ocorreu corretamente
 		cout << "Esta ordenado (depois)= " << dados.estaOrdenado()<< endl << endl;
 	}
 	
-	// QUICK SORT
+	// COMB SORT
 	{
-		QuickSorter quickSorter;
+		CombSorter sorter;
 		dados.abreArquivoBinario(); // recarrega conjunto de dados do arquivo
 		cout << "Esta ordenado (antes)= " << dados.estaOrdenado()<< endl;
-		dados.ordena(quickSorter);
-		quickSorter.exibeEstatisticas();	// obtem estatísticas referentes ao objeto sorter
+		dados.ordena(sorter);
+		sorter.exibeEstatisticas();	// obtem estatísticas referentes ao objeto sorter
 		// verifica se ordenação ocorreu corretamente
 		cout << "Esta ordenado (depois)= " << dados.estaOrdenado()<< endl << endl;	
 	}	
 	
 	// RADIX SORT
 	{
-		RadixSorter radixSorter;
+		RadixSorter sorter;
 		dados.abreArquivoBinario(); // recarrega conjunto de dados do arquivo
 		cout << "Esta ordenado (antes)= " << dados.estaOrdenado()<< endl;
-		dados.ordena(radixSorter);
-		radixSorter.exibeEstatisticas();	// obtem estatísticas referentes ao objeto sorter
+		dados.ordena(sorter);
+		sorter.exibeEstatisticas();	// obtem estatísticas referentes ao objeto sorter
 		// verifica se ordenação ocorreu corretamente
 		cout << "Esta ordenado (depois)= " << dados.estaOrdenado()<< endl << endl;
 	}	

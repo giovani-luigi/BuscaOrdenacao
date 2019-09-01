@@ -5,23 +5,22 @@ const char* BubbleSorter::getNome(){
 }
 	
 void BubbleSorter::ordenaDados(vector<TDado>& vetor){
-	TDado* menor;
-	int64 i, j;
+	
+	bool houveTroca;
+	int64 i;
 
-	for (i=0; i<vetor.size();i++){
-
-		// mostra progresso da operação
-		exibeProgresso(static_cast<float>(i)/vetor.size());
-		
-		menor = &vetor[i];
-		for (j=i+1; j<vetor.size();j++){
+	do {
+		houveTroca = false; //marca que nao houveTroca
+	
+		for (i = 0; i < vetor.size() - 1; i++) {			
 			comparacoes++;
-			if (vetor[j] > *menor)
-				menor = &vetor[j];
+			if (vetor[i] > vetor[i + 1]) {
+				swap(vetor[i], vetor[i+1]);
+				trocas++;
+				houveTroca = true;
+			}
 		}
-		if (menor != &vetor[i]){
-			trocas++;
-			swap(*menor, vetor[i]);
-		}
-	}
+		
+	} while (houveTroca);
+	
 }

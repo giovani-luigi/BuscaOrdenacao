@@ -13,8 +13,6 @@ void InsertionSorter::ordenaDados(vector<TDado>& vetor){
 		aux = vetor[i];
 		comparacoes++;
 
-		exibeProgresso( static_cast<float>(i) /vetor.size() );
-
 		for( j = i-1; j>=0 && vetor[j]>aux ; j--){
 			// desloca toda a coleção para a direita
 			vetor[j+1] = vetor[j];

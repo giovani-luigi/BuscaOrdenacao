@@ -5,9 +5,6 @@ void Sorter::ordenaDados(vector<TDado>& vetor){
 	int64 i, j;	
 
 	for (i=0; i<vetor.size();i++){
-
-		// mostra progresso da operação
-		exibeProgresso(static_cast<float>(i)/vetor.size());
 		
 		menor = &vetor[i];
 		for (j=i+1; j<vetor.size();j++){
@@ -20,6 +17,8 @@ void Sorter::ordenaDados(vector<TDado>& vetor){
 			swap(*menor, vetor[i]);
 		}
 	}
+	
+	
 }
 
 const char* Sorter::getNome(){ 
@@ -29,14 +28,17 @@ const char* Sorter::getNome(){
 void Sorter::ordena(vector<TDado>& vetor){
 	
 	zeraEstatisticas();
-			
+	
 	clock_t startTime = clock();
 	cout << "Ordenando com: " << this->getNome() << endl;
-	cout << "Progresso %"; // placeholder
+	cout << "Comparações: 0"; // placeholder
 	
 	ordenaDados(vetor);
 	
 	duracao = double(clock() - startTime) / CLOCKS_PER_SEC;
+	
+	// força atualização antes de sair
+	exibeProgresso();	
 }
 
 void Sorter::exibeEstatisticas(){

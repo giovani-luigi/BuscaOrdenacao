@@ -21,6 +21,7 @@ int64 QuickSorter::particiona(vector<TDado>& v, int64 ini, int64 fim) {
 			pivo = ini;
 			trocas++;
 		}
+		
 	}
 	return pivo;
 }
