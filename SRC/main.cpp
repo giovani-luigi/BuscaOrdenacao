@@ -7,6 +7,7 @@
 #include "BubbleSorter.h"
 #include "CombSorter.h"
 #include "ShakeSorter.h"
+#include "ShellSorter.h"
 #include "InsertionSorter.h"
 #include "RadixSorter.h"
 #include "QuickSorter.h"
@@ -83,6 +84,17 @@ void ordenaDados(){
 	// INSERTION SORT
 	{
 		InsertionSorter sorter;
+		dados.abreArquivoBinario(); // recarrega conjunto de dados do arquivo
+		cout << "Esta ordenado (antes)= " << dados.estaOrdenado()<< endl;
+		dados.ordena(sorter);
+		sorter.exibeEstatisticas();	// obtem estatísticas referentes ao objeto sorter
+		// verifica se ordenação ocorreu corretamente
+		cout << "Esta ordenado (depois)= " << dados.estaOrdenado()<< endl << endl;
+	}
+	
+	// SHELL SORT
+	{
+		ShellSorter sorter;
 		dados.abreArquivoBinario(); // recarrega conjunto de dados do arquivo
 		cout << "Esta ordenado (antes)= " << dados.estaOrdenado()<< endl;
 		dados.ordena(sorter);

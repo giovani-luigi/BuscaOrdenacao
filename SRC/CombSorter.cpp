@@ -18,8 +18,10 @@ void CombSorter::ordenaDados(vector<TDado>& vetor){
 		if (distancia<1) distancia = 1;
 		
 		for(int i=0; i + distancia < vetor.size(); i++){
+			comparacoes++;
 			if ( vetor[i] > vetor[i+distancia] ){
 				swap(vetor[i], vetor[i+distancia]);
+				trocas++;
 				houveTroca = true;
 			}
 				
