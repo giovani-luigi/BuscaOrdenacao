@@ -85,6 +85,12 @@ class Dataset{
 		// ordena o conjunto de dados em memória, utilizando um classificador especificado
 		// - classificador: um objeto capaz de ordenar objetos do tipo TDado
 		void ordena(Sorter& classificador);
+		
+		// busca sequencialmente um determinado valor na coleção
+		int busca(int valor);
+		
+		// busca um determinado valor na coleção
+		int buscaBinaria(int valor);
 };
 
 #endif

@@ -90,9 +90,33 @@ void Dataset::ordena(Sorter& classificador){
 	classificador.ordena(vetor);
 }
 
+int Dataset::busca(int valor){
+	for (int i=0; i < vetor.size(); i++)
+		if (valor==vetor[i]) 
+			return i;
+	return -1;
+}
+
+int Dataset::buscaBinaria(int valor){
+
+	int64 ini;
+	int64 meio;
+	int64 fim = vetor.size()-1;
+	
+	while (ini <= fim){
+		meio = (fim+ini)/2;
+		if (vetor[meio] == valor)
+			return meio;
+		if ( valor < vetor[meio])
+			fim = meio-1;
+		else
+			ini = meio+1;
+	}
+	return -1;
+}
+
 void Dataset::abreArquivoTexto(const char* arquivo){
 }
 
-void Dataset::salvaArquivoTexto(const char* arquivo){
-	
+void Dataset::salvaArquivoTexto(const char* arquivo){	
 }

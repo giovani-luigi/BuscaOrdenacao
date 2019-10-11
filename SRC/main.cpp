@@ -43,8 +43,40 @@ void carregaDados(){
 		criaNovoArquivo();
 }
 
+void testaOrdenacaoBuscaBinaria(){
+	
+	Dataset dados;
+	
+	clock_t inicio = clock();
+	
+	RadixSorter sorter;
+	dados.abreArquivoBinario(); // recarrega conjunto de dados do arquivo
+	cout << "Esta ordenado (antes)= " << dados.estaOrdenado() << endl;
+	dados.ordena(sorter);
+	sorter.exibeEstatisticas();	// obtem estatísticas referentes ao objeto sorter
+	// verifica se ordenação ocorreu corretamente
+	cout << "Esta ordenado (depois)= " << dados.estaOrdenado() << endl;
+	int64 pos = dados.buscaBinaria( 9999999 );
+	float segundos = (float)(clock() - inicio) / CLOCKS_PER_SEC;
+	cout << "Duracao Total binaria=" << segundos << endl << endl;
+}
+
+void testaOrdenacaoBuscaSequencial(){
+	
+	Dataset dados;
+	
+	clock_t inicio = clock();
+	
+	RadixSorter sorter;
+	dados.abreArquivoBinario(); // recarrega conjunto de dados do arquivo
+	cout << "Esta ordenado (antes)= " << dados.estaOrdenado() << endl;
+	int64 pos = dados.busca(999999);
+	float segundos = (float)(clock() - inicio) / CLOCKS_PER_SEC;
+	cout << "Duracao Total sequencial=" << segundos << endl << endl;
+}
+
 // realiza a ordenação dos dados
-void ordenaDados(){
+void testaOrdenacao(){
 	
 	Dataset dados;	
 	
@@ -161,7 +193,10 @@ int main(int argc, char** argv) {
 	system("pause");
 	cout << endl << endl;
 		
-	ordenaDados();
+	//testaOrdenacao();
+	
+	testaOrdenacaoBuscaBinaria();
+	testaOrdenacaoBuscaSequencial();
 	
 	return 0;
 }
